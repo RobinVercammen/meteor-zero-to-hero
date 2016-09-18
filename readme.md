@@ -5,3 +5,7 @@ In this series we will look at how to start from 0 knowledge of html, css and ja
 ## 01-html
 
 Discover how to write a basic html page. And see it in action by opening the index.html file.
+
+## 02-css
+
+With an html page present we can use css to style the page. Discover how to craft the most beautiful webpage out there.
