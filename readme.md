@@ -13,3 +13,7 @@ With an html page present we can use css to style the page. Discover how to craf
 ## 03-javascript
 
 With javascript we can empower users to interact with our website. Converting it to a fully functioning application.
+
+## 04-SPA
+
+With our recently aquired knowledge of javascript we are now able to build a truly single page application ourselfs.
