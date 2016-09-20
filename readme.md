@@ -17,3 +17,7 @@ With javascript we can empower users to interact with our website. Converting it
 ## 04-SPA
 
 With our recently aquired knowledge of javascript we are now able to build a truly single page application ourselfs.
+
+## 05-angular
+
+Convert our manually brewn application into a fully fledged angular application.
