@@ -163,3 +163,116 @@ In `main.html` we append the following templates:
 ```
 
 When we now browse to our running [meteor application](http://localhost:3000) we see the same result as with our spa module. 
+
+### Write to the database.
+When meteor launches it spins up a MongoDB database. Wouldn't it be nice if we could store some data. Well strive towards a similar experience as in our javascript module where we added text to a div. Now we'll save it to the database and then list it.
+
+Meteor uses a concept called Collections to save our data. What we first need to do is make a collection. We do this by making a `lineCollection.js` file in a newly made `imports` folder.
+
+```bash
+/client
+/imports
+    lineCollection.js
+/server
+```
+
+Within this file we write: 
+
+```javascript
+export default LineCollection = new Mongo.Collection('lines');
+```
+
+This will make a new collection which we'll be able to use in our own code. But first we need to tell the server to make this collection avaible. We do this by importing this collection in the `server.js` file.
+
+```bash
+/server
+    server.js
+```
+
+```javascript
+import { Meteor } from 'meteor/meteor';
+import LineCollection from '../imports/lineCollection';
+
+Meteor.startup(() => {
+  // code to run on server at startup
+});
+```
+
+So here we've added the `import LineCollection from '../imports/lineCollection'`
+
+With all this in place we can use the collection in our client. So within our main.js of the client
+
+```bash
+/client
+    main.js
+```
+
+we are again import the collection `import LineCollection from '../imports/lineCollection'`. Next up we'll use its magic.
+
+### View binding
+
+Withing meteor there are two type of items to attach to the frontend. A helpers function and a events function. Helpers allow you to write data to the view, while events capture data from the view. In this example we'll first modify our main.html file so that we include a button and input field and can display data from the helper:
+
+```html
+<--! omitted -->
+<template name="Home">
+  <h1>Home</h1>
+  <p>this is the homepage</p>
+  <input type="text">
+  <button>Add text</button> 
+  {{#each line in lines}}
+  <div>
+    <p>{{line.text}}</p>
+  </div>
+  {{/each}}
+</template>
+<--! omitted -->
+```
+
+what we see here is similar syntax to our angular module. Beneath the button we included an `each` statement. This statement will loop over all the different lines which well add to the database. These lines have a text property which gets printed repeatedly.
+
+To allow this kind of interaction we need to define the events and helpers in our javascript file. We can define events and helpers per template so in this case we are going to define them on the home template.
+
+```javascript
+import LineCollection from '../imports/lineCollection';
+
+// router configuration
+var renderTemplate = function (templateName) {
+  return function () {
+    return this.render(templateName);
+  }
+}
+
+Router.configure({
+  layoutTemplate: 'ApplicationLayout'
+});
+
+Router.route('/', renderTemplate('Home'));
+Router.route('/home', renderTemplate('Home'));
+Router.route('/about', renderTemplate('About'));
+Router.route('/contact', renderTemplate('Contact'));
+
+// these reference the Home template
+Template.Home.helpers({
+    // add a property called lines which we can use in withing the template
+  'lines': function () {
+    // reference the Linecollection and do a find. This will return all the lines from the collection.
+    return LineCollection.find({});
+  }
+});
+
+Template.Home.events({
+// the function specified will be called
+  'click button': function (event, template) {
+    // read the value from the input field.
+    // Within the find method we can use the same selectors as we discussed before.
+    // This will select all input field but since we only have one, no problem  
+    var value = template.find('input').value;
+    // insert a new entry in the collection. We use the value as the text property. This text property gets read by the each statement in the template.
+    LineCollection.insert({ text: value });
+    // clear the input field by settings its value to an empty string
+    template.find('input').value = '';
+  }
+});
+```
+We've now succesfully implemented our previous modules in Meteor. We've leveradged Meteor power to quickly build applications with minimal hassle and are working completly reactive. Open a second browser window, add text in one screen and see it instantainiously update on the second screen.

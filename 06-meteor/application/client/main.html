@@ -22,16 +22,23 @@
 <!-- Templates -->
 
 <template name="Home">
-    <h1>Home</h1>
-    <p>this is the homepage</p>
+  <h1>Home</h1>
+  <p>this is the homepage</p>
+  <input type="text">
+  <button>Add text</button> 
+  {{#each line in lines}}
+  <div>
+    <p>{{line.text}}</p>
+  </div>
+  {{/each}}
 </template>
 
 <template name="Contact">
-    <h1>Contact</h1>
-    <p>this is the contact page</p>
+  <h1>Contact</h1>
+  <p>this is the contact page</p>
 </template>
 
 <template name="About">
-    <h1>About</h1>
-    <p>this is the about page</p>
+  <h1>About</h1>
+  <p>this is the about page</p>
 </template>
