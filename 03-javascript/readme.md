@@ -125,4 +125,4 @@ Instead of alerting some text we now query the document again. We use `document.
 
 ## Much more javascript
 
-Javascript is great for building application. Because we are in the browser we get access to the `html` element and can manipulate them. This empowers us to build fully functioning client applications.
+Javascript is great for building applications. Because we are in the browser we get access to the `html` element and can manipulate them. This empowers us to build fully functioning client applications.
