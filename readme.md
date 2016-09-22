@@ -21,3 +21,7 @@ With our recently aquired knowledge of javascript we are now able to build a tru
 ## 05-angular
 
 Convert our manually brewn application into a fully fledged angular application.
+
+## 06-meteor
+
+By leveraging the concepts of a single page application we can now create a fully stacked meteo application.

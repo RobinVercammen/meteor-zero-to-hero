@@ -7,7 +7,7 @@ window.onload = function () {
     // emulate pages coming from a webserver / getting data from somewhere
     var homePage = '<h1>Home</h1> <p>this is the homepage</p>';
     var contactPage = '<h1>Contact</h1><p>this is the contact page</p>';
-    var aboutPage = '<h1>About</h1><p>this is the about page';
+    var aboutPage = '<h1>About</h1><p>this is the about page</p>';
 
     // set initial content
     setContent(homePage);

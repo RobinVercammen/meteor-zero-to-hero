@@ -52,7 +52,7 @@ For the use of routing our router needs to know where it can mount the html corr
         <div ng-view>
             <!-- Here we'll host our spa -->
         </div>
-        <div id="footer"><p><span>&copy 2016</span>Coolest Company Ever</p></div>
+        <div id="footer"><p><span>&copy; 2016</span>Coolest Company Ever</p></div>
         <script type="text/javascript" src="./script.js"></script>
     </body>
 </html>

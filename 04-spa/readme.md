@@ -22,7 +22,7 @@ Since we are going to dynamicly change our content we'll be clearing our previou
         <div id="content">
             <!-- Here we'll host our spa -->
         </div>
-        <div id="footer"><p><span>&copy 2016</span>Coolest Company Ever</p></div>
+        <div id="footer"><p><span>&copy; 2016</span>Coolest Company Ever</p></div>
         <script type="text/javascript" src="./script.js"></script>
     </body>
 </html>
@@ -45,7 +45,7 @@ window.onload = function () {
     // emulate pages coming from a webserver / getting data from somewhere
     var homePage = '<h1>Home</h1> <p>this is the homepage</p>';
     var contactPage = '<h1>Contact</h1><p>this is the contact page</p>';
-    var aboutPage = '<h1>About</h1><p>this is the about page';
+    var aboutPage = '<h1>About</h1><p>this is the about page</p>';
 
     // set initial content
     setContent(homePage);

@@ -1,0 +1,44 @@
+/* CSS declarations go here */
+#navigation{
+    background-color: gray;
+    padding: 0px;
+    margin: 0px;
+}
+
+#navigation>ul{
+    list-style-type: none;
+    padding: 10px;
+}
+
+#navigation>ul>li{
+    display: inline;
+    background-color: black;
+    margin: 0;
+    padding: 10px;
+}
+#navigation>ul>li>a{
+    color: white;
+}
+
+#content{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#content>p{
+    text-align: center;
+}
+
+#content>img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer{
+    text-align: center;
+}
+
+#footer>p{
+    color: #AAAAAA;
+}

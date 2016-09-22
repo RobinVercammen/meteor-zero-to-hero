@@ -185,7 +185,7 @@ For our application we can get away only knowing of the elements mentioned above
             </p>
             <img src="http://www.freedigitalphotos.net/images/img/homepage/87357.jpg">
         </div>
-        <div><p><span>&copy 2016</span>Coolest Company Ever</p></div>
+        <div><p><span>&copy; 2016</span>Coolest Company Ever</p></div>
     </body>
 </html>
 ```

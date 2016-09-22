@@ -84,7 +84,7 @@ Remember our three divs from the html basics? We can now identify our three divs
     </p>
     <img src="http://www.freedigitalphotos.net/images/img/homepage/87357.jpg">
 </div>
-<div id="footer"><p><span>&copy 2016</span>Coolest Company Ever</p></div>
+<div id="footer"><p><span>&copy; 2016</span>Coolest Company Ever</p></div>
 ```
 
 ## Combine selectors
