@@ -61,3 +61,59 @@ window.onload = function () {
     });
 }
 ```
+
+We can take it a bit further by making it more dynamic as follows. This allows for greater extensibility and empowers javascript design.
+
+```javascript
+var home = '<h1>Dit is de home pagina</h1>';
+var contact = '<h1>Dit is de contact pagina</h1>';
+var about = '<h1>Dit is de about pagina</h1>';
+
+var replace = function (id, content) {
+    document.querySelector(id)
+        .innerHTML = content;
+}
+
+var contentReplace = function (content) {
+    replace('#content', content);
+}
+
+var documentClickQuerySelector = function (selector, functie) {
+    document.querySelector(
+        selector)
+        .addEventListener('click', functie);
+}
+
+var routes = [];
+
+var registerRoute = function (route, content) {
+    routes.push({
+        route: route,
+        content: content
+    });
+}
+
+var matchRouteWithUrl = function () {
+    var url = window.location.href;
+    for (var i = 0; i < routes.length; i++) {
+        var route = routes[i];
+        if (url.indexOf(route.route) > -1) {
+            contentReplace(route.content);
+            return;
+        }
+    }
+    contentReplace(home);
+}
+
+window.onload = function () {
+    registerRoute('home', home);
+    registerRoute('about', about);
+    registerRoute('contact', contact);
+
+    matchRouteWithUrl();
+
+    window.onhashchange = function(){
+        matchRouteWithUrl();
+    }
+}
+```
